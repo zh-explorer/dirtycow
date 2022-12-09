@@ -3,6 +3,6 @@ project(dirtycow C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(dirtycow dirtycow.c exploit.c exploit.h unit.c unit.h)
+add_executable(dirtycow dirtycow.c exploit.c exploit.h unit.c unit.h vdso_backdoor.c vdso_backdoor.h dirtycow.h)
 
 target_link_libraries(dirtycow pthread)

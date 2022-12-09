@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "exploit.h"
+#include "dirtycow.h"
 
 int main() {
     char *filename = "/foo";
