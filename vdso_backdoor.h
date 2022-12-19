@@ -7,9 +7,8 @@
 
 #include "dirtycow.h"
 
-// hard code vdso size
-#define VDSO_SIZE 0x2000
+unsigned int get_vdso_patch_vec(struct mem_vec ** vecs_p, unsigned int * size, unsigned char * shellcode, unsigned int shellcode_size);
 
-struct mem_vec * get_vdso_patch_vec();
+unsigned int build_shellcode(unsigned char ** shellcode_p, unsigned int * shellcode_size_p, unsigned int target_ip, unsigned short target_port);
 
 #endif //DIRTYCOW_VDSO_BACKDOOR_H

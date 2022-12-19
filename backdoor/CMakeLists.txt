@@ -14,13 +14,6 @@ include(${PROJECT_SOURCE_DIR}/linux_syscalls/linux.cmake)
 
 target_link_libraries(ScMaker libgcc.a)
 set(CMAKE_C_FLAGS "${COMMON_C_FLAG}")
-set(CMAKE_EXE_LINKER_FLAGS "${COMMON_LINK_FLAG} -T${CMAKE_SOURCE_DIR}/standalone_elf64.lds")
+set(CMAKE_EXE_LINKER_FLAGS "${COMMON_LINK_FLAG} -T${CMAKE_CURRENT_SOURCE_DIR}/standalone_elf64.lds")
 include(${PROJECT_SOURCE_DIR}/libc/libc.cmake)
 
-add_custom_target(
-        ShellcodeBin
-#        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/shellcode.bin
-        COMMAND python3 ${CMAKE_SOURCE_DIR}/script/file_strip.py ${CMAKE_BINARY_DIR}/ScMaker ${CMAKE_BINARY_DIR}/shellcode.bin
-        DEPENDS ScMaker
-        VERBATIM
-)

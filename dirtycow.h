@@ -12,6 +12,6 @@ struct mem_vec {
 
 enum exploit_type {
     PROC_SELF_MEM,
-    PRTACE_POKEDATA,
+    PTRACE,
 };
 #endif //DIRTYCOW_DIRTYCOW_H

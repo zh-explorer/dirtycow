@@ -13,8 +13,8 @@ ssize_t readlink(const char *pathname, char *buf, size_t bufsiz) {
     return syscaller3(__NR_readlink, pathname, buf, bufsiz);
 }
 
-pid_t getpid(void) {
-    return syscaller0(__NR_getpid);
+uid_t getuid(void) {
+    return syscaller0(__NR_getuid);
 }
 
 
